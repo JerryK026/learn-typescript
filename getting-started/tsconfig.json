@@ -1,0 +1,9 @@
+{
+  "compilerOptions": {
+    // ts 컴파일할 때 js가 포함되어도 좋은지 확인
+    "allowJs": true,
+    "checkJs": true,
+    // type을 any라고 할지라도 무조건 명시하라
+    "noImplicitAny": true
+  }
+}
