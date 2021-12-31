@@ -1,13 +1,7 @@
-type todo = {
-  id: number;
-  title: string;
-  done: boolean;
-};
-
-let todoItems: Array<todo>;
+let todoItems: { id: number; title: string; done: boolean }[];
 
 // api
-function fetchTodoItems(): Array<todo> {
+function fetchTodoItems(): { id: number; title: string; done: boolean }[] {
   const todos = [
     { id: 1, title: '안녕', done: false },
     { id: 2, title: '타입', done: false },
@@ -17,12 +11,12 @@ function fetchTodoItems(): Array<todo> {
 }
 
 // crud methods
-function fetchTodos(): Array<todo> {
+function fetchTodos(): { id: number; title: string; done: boolean }[] {
   const todos = fetchTodoItems();
   return todos;
 }
 
-function addTodo(todo: todo): void {
+function addTodo(todo: { id: number; title: string; done: boolean }): void {
   todoItems.push(todo);
 }
 
@@ -30,17 +24,20 @@ function deleteTodo(index: number): void {
   todoItems.splice(index, 1);
 }
 
-function completeTodo(index: number, todo: todo): void {
+function completeTodo(
+  index: number,
+  todo: { id: number; title: string; done: boolean }
+): void {
   todo.done = true;
   todoItems.splice(index, 1, todo);
 }
 
 // business logic
-function logFirstTodo(): todo {
+function logFirstTodo(): { id: number; title: string; done: boolean } {
   return todoItems[0];
 }
 
-function showCompleted(): Array<todo> {
+function showCompleted(): { id: number; title: string; done: boolean }[] {
   return todoItems.filter(item => item.done);
 }
 
