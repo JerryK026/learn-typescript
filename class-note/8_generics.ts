@@ -66,9 +66,11 @@ interface ShoppingItem {
   stock: number;
 }
 
-function getShoppingItemOption<T>(itemOption: T): T {
+// 키에 한정해서 타입을 한정할 수 있다.
+function getShoppingItemOption<T extends keyof ShoppingItem>(itemOption: T): T {
   return itemOption;
 }
 
-getShoppingItemOption(10);
-getShoppingItemOption<string>('a');
+// getShoppingItemOption(10);
+// getShoppingItemOption<string>('a');
+getShoppingItemOption('')
